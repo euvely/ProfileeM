@@ -10,12 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.profileem.R;
-import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
-import com.kakao.sdk.user.model.User;
-
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
 
 public class SplashActivity extends AppCompatActivity {
     private static final String TAG = "KakaoLogin";
@@ -29,51 +24,77 @@ public class SplashActivity extends AppCompatActivity {
 
         kakaoBtn = findViewById(R.id.kakaoBtn);
 
-        Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
-            @Override
-            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
-                Log.e(TAG, "CallBack Method");
-                if (oAuthToken != null) {
-                    Log.i(TAG, "Token: " + oAuthToken.getAccessToken());
-                    updateKakaoLogin();
-                } else {
-                    Log.e(TAG, "Login failed");
-                }
-                return null;
-            }
-        };
-
         kakaoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserApiClient.getInstance().loginWithKakaoAccount(SplashActivity.this, callback);
+                if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(SplashActivity.this)) { // 카톡 어플이 있을 경우
+                    login();
+                }
+                else { // 카톡 어플이 없을 경우 (url로 연결되서 직접 계정 작성해야 함)
+                    accountLogin();
+                }
             }
         });
     }
 
-    private void updateKakaoLogin() {
+    public void login() {
+        UserApiClient.getInstance().loginWithKakaoTalk(SplashActivity.this,
+                (OAuthToken, error) -> {
+            if (error != null) {
+                Log.e(TAG, "로그인 실패");
+            } else if (OAuthToken != null) {
+                Log.i(TAG, "로그인 성공, 토큰: " + OAuthToken.getAccessToken());
+                getUserInfo();
 
-        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
-            @Override
-            public Unit invoke(User user, Throwable throwable) {
-                if (user != null) {
-                    Log.d(TAG, "id = " + user.getId());
-                    Log.d(TAG, "name = " + user.getKakaoAccount().getProfile().getNickname());
-
-                    // 로그인이 되면 메인화면으로 이동
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    }, 3000);
-                } else {
-
-                }
-                return null;
+                // 로그인 성공 시 메인화면으로 이동
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 2000);
             }
+            return null;
+        });
+    }
+
+    public void accountLogin() {
+        UserApiClient.getInstance().loginWithKakaoAccount(SplashActivity.this,
+                (OAuthToken, error) -> {
+            if (error != null) {
+                Log.e(TAG, "로그인 실패");
+            } else if (OAuthToken != null) {
+                Log.i(TAG, "로그인 성공, 토큰: " + OAuthToken.getAccessToken());
+                getUserInfo();
+
+                // 로그인 성공 시 메인화면으로 이동
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 2000);
+            }
+            return null;
+        });
+    }
+
+    // 사용자 정보 받아오기
+    public void getUserInfo() {
+        UserApiClient.getInstance().me((user, error) -> {
+            if (error != null) {
+                Log.e(TAG, "사용자 정보 받아오기 실패");
+            } else {
+                Log.i(TAG, "사용자 정보 id: " + user.getId());
+                Log.i(TAG, "사용자 정보 name: " + user.getKakaoAccount().getProfile().getNickname());
+
+                System.out.println("사용자 계정" + user.getKakaoAccount());
+            }
+            return null;
         });
     }
 }

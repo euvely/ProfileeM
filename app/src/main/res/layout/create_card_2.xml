@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pageNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="2/5"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/mbtiPromptTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pageNumberTextView"
+        android:layout_alignParentStart="true"
+        android:text="감자님의 MBTI가 궁금해요"
+        android:padding="16dp" />
+
+    <!-- GridLayout로 정사각형 버튼 배치 -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mbtiPromptTextView"
+        android:columnCount="3"
+        android:rowCount="6"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp">
+
+        <!-- 버튼 1부터 16까지 생성 -->
+        <Button
+            android:id="@+id/button1"
+            style="@style/MyButtonStyle"
+            android:text="#INFP" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/MyButtonStyle"
+            android:text="#ENFP" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/MyButtonStyle"
+            android:text="#ESFJ" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/MyButtonStyle"
+            android:text="#ISFJ" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/MyButtonStyle"
+            android:text="#ISFP" />
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/MyButtonStyle"
+            android:text="#ESFP" />
+
+        <Button
+            android:id="@+id/button7"
+            style="@style/MyButtonStyle"
+            android:text="#INTP" />
+
+        <Button
+            android:id="@+id/button8"
+            style="@style/MyButtonStyle"
+            android:text="#INFJ" />
+
+        <Button
+            android:id="@+id/button9"
+            style="@style/MyButtonStyle"
+            android:text="#ENFJ" />
+
+        <Button
+            android:id="@+id/button10"
+            style="@style/MyButtonStyle"
+            android:text="#ENTP" />
+
+        <Button
+            android:id="@+id/button11"
+            style="@style/MyButtonStyle"
+            android:text="#ESTJ" />
+
+        <Button
+            android:id="@+id/button12"
+            style="@style/MyButtonStyle"
+            android:text="#ISTJ" />
+
+        <Button
+            android:id="@+id/button13"
+            style="@style/MyButtonStyle"
+            android:text="#ENFJ" />
+
+        <Button
+            android:id="@+id/button14"
+            style="@style/MyButtonStyle"
+            android:text="#ENTP" />
+
+        <Button
+            android:id="@+id/button15"
+            style="@style/MyButtonStyle"
+            android:text="#ESTJ" />
+
+        <Button
+            android:id="@+id/button16"
+            style="@style/MyButtonStyle"
+            android:text="#ISTJ" />
+
+    </GridLayout>
+
+    <!-- 넘어가기 버튼 -->
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="넘어가기" />
+
+</RelativeLayout>

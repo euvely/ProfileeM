@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MyProfile 화면"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="감자 님의 프로필 카드예요."
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/createProfile"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:background="@drawable/card_corner"
+        android:backgroundTint="#F2F2F2"
+        android:elevation="40dp"
+        android:paddingTop="100dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableTop="@drawable/profilecreatebtn"
+        android:text="터치해서 나만의 프로필 카드를 만들어 보세요!"
+        android:textSize="16dp"
+        android:textColor="@color/gray"/>
 
 </LinearLayout>

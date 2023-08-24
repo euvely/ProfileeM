@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pageNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:padding="16dp"
+        android:text="1/5"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/profilePromptTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pageNumberTextView"
+        android:layout_alignParentStart="true"
+        android:padding="13dp"
+        android:text="프로필을 작성해주세요."
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <!-- 이름 입력 -->
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilePromptTextView"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/create_card_profile"
+        android:hint="이름"
+        android:padding="16dp"/>
+
+    <!-- 생년월일 입력 -->
+    <EditText
+        android:id="@+id/birthdayEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameEditText"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/create_card_profile"
+        android:hint="생년월일"
+        android:padding="16dp"/>
+
+    <!-- 학교 입력 -->
+    <EditText
+        android:id="@+id/schoolEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/birthdayEditText"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/create_card_profile"
+        android:hint="학교"
+        android:padding="16dp"/>
+
+    <!-- 전공 입력 -->
+    <EditText
+        android:id="@+id/majorEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/schoolEditText"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/create_card_profile"
+        android:hint="전공"
+        android:padding="16dp"/>
+
+    <!-- 거주 지역 입력 -->
+    <EditText
+        android:id="@+id/homeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/majorEditText"
+        android:background="@drawable/create_card_profile"
+        android:hint="거주 지역"
+        android:padding="16dp"/>
+
+    <!-- 넘어가기 버튼 -->
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/create_card_nextbtn"
+        android:padding="20dp"
+        android:text="넘어가기"
+        android:textSize="20dp"
+        android:textColor="@color/gray"/>
+
+</RelativeLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pageNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="3/5"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/foodPromptTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pageNumberTextView"
+        android:layout_alignParentStart="true"
+        android:text="감자님이 못 먹는 음식이 궁금해요."
+        android:padding="16dp"/>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/foodPromptTextView"
+        android:columnCount="3"
+        android:rowCount="5"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/button1"
+            style="@style/MyButtonStyle"
+            android:text="#민트초코" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/MyButtonStyle"
+            android:text="#고수" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/MyButtonStyle"
+            android:text="#오이" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/MyButtonStyle"
+            android:text="#생선회" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/MyButtonStyle"
+            android:text="#닭발" />
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/MyButtonStyle"
+            android:text="#곱창" />
+
+        <Button
+            android:id="@+id/button7"
+            style="@style/MyButtonStyle"
+            android:text="#마라" />
+
+        <Button
+            android:id="@+id/button8"
+            style="@style/MyButtonStyle"
+            android:text="#족발" />
+
+        <Button
+            android:id="@+id/button9"
+            style="@style/MyButtonStyle"
+            android:text="#견과류" />
+
+        <Button
+            android:id="@+id/button10"
+            style="@style/MyButtonStyle"
+            android:text="#복숭아" />
+
+        <Button
+            android:id="@+id/button11"
+            style="@style/MyButtonStyle"
+            android:text="#돼지껍데기" />
+
+        <Button
+            android:id="@+id/button12"
+            style="@style/MyButtonStyle"
+            android:text="#홍어" />
+
+        <Button
+            android:id="@+id/button13"
+            style="@style/MyButtonStyle"
+            android:text="#깻잎" />
+
+        <Button
+            android:id="@+id/button14"
+            style="@style/MyButtonStyle"
+            android:text="#산낙지" />
+
+        <Button
+            android:id="@+id/button15"
+            style="@style/MyButtonStyle"
+            android:text="#향신료" />
+
+    </GridLayout>
+
+    <!-- 넘어가기 버튼 -->
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="넘어가기"/>
+
+</RelativeLayout>

@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.profileem.R;
 import com.example.profileem.fragment.MainGroupFragment;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private MainProfileWalletFragment mainProfileWalletFragment = new MainProfileWalletFragment();
     private MainGroupFragment mainGroupFragment = new MainGroupFragment();
     private MainSettingFragment mainSettingFragment = new MainSettingFragment();
+
+    ImageButton qr_scan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        qr_scan = findViewById(R.id.qr_scan);
+        qr_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, QRScannerActivity.class);
+                startActivity(intent);
             }
         });
     }
